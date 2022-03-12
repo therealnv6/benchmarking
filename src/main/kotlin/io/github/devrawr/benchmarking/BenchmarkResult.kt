@@ -5,7 +5,8 @@ import java.time.temporal.ChronoField
 data class BenchmarkResult(
     val globalTime: Long,
     val samples: Long,
-    val unit: ChronoField
+    val unit: ChronoField,
+    val section: String?
 )
 {
     val averageTime: Long
@@ -17,7 +18,7 @@ data class BenchmarkResult(
     override fun toString(): String
     {
         return """
-            ---- #${this.hashCode()} $samples samples ran, results: ----
+            ---- #${section ?: this.hashCode()} $samples samples ran, results: ----
             [globalTime] = $globalTime
             [average] = $averageTime
             [unit] = $unit

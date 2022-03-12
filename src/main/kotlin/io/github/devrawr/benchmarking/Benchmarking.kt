@@ -8,6 +8,7 @@ object Benchmarking
     fun benchmark(
         samples: Int = 1,
         unit: ChronoField = ChronoField.MILLI_OF_SECOND,
+        section: String? = null,
         action: (Int) -> Unit
     ): BenchmarkResult
     {
@@ -21,7 +22,8 @@ object Benchmarking
         return BenchmarkResult(
             globalTime = this.getCurrentTime(unit) - begin,
             samples = samples.toLong(),
-            unit = unit
+            unit = unit,
+            section = section
         )
     }
 
